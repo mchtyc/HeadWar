@@ -4,16 +4,14 @@ public class Coin : MonoBehaviour
 {
     private int value;
 
-    // Start is called before the first frame update
     void Start()
     {
         value = Random.Range(1, 11);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.RotateAround(transform.position, Vector3.up, 2.5f);
+        transform.RotateAround(transform.position, Vector3.up, 100f * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

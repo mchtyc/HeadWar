@@ -1,8 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,11 +13,10 @@ public class GameManager : MonoBehaviour
 
     private GameObject player;
 
-    // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1f;
-        player = (GameObject)Instantiate(PlayerPre, transform.position, Quaternion.identity);
+        player = Instantiate(PlayerPre, transform.position, Quaternion.identity);
         Statics.coinCount = 0;
         EnemyIns(19);
         StartCoroutine(CoinIns());

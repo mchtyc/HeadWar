@@ -2,7 +2,7 @@
 
 public class Bullet : MonoBehaviour
 {
-	public float bulletSpeed = 10;
+	public float bulletSpeed = 30;
     public float attack;
     
     public Transform target;
@@ -22,18 +22,22 @@ public class Bullet : MonoBehaviour
         {
             attack = belongTo.GetComponent<Enemy>().attack;
         }
+
+        dir = target.position - transform.position;
+        dir = dir.normalized;
     }
 
-    // Update is called once per frame
     void Update()
     {
-		if (target != null) {
-			dir = target.position - transform.position;
-			dir = dir.normalized;
-			transform.position += dir * bulletSpeed * Time.deltaTime;
-		} else {
-			Destroy (gameObject);
-		}
+        //if (target != null) {
+        //	dir = target.position - transform.position;
+        //	dir = dir.normalized;
+        //	transform.position += dir * bulletSpeed * Time.deltaTime;
+        //} else {
+        //	Destroy (gameObject);
+        //}
+
+        transform.position += dir * bulletSpeed * Time.deltaTime;
     }
 
 	void OnTriggerEnter2D(Collider2D other){

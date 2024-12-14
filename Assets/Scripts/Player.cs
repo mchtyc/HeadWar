@@ -8,18 +8,17 @@ public class Player : Abilities
     private GunBelt playerBelt;
     private GameManager GManager;
 
-    // Start is called before the first frame update
     void Start()
     {
         id = 1;
         playerMoney = 0;
         playerPoints = 0;
-        maxSpeed = 75;
+        maxSpeed = 400;
         playerBelt = GetComponentInChildren<GunBelt>();
-        HP = health = 100;
+        HP = health = 1000;
         attack = 50;
         defense = 10;
-        GManager = FindObjectOfType<GameManager>();
+        GManager = FindAnyObjectByType<GameManager>();
     }
 
     void Update()

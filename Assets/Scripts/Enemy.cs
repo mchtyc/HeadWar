@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Enemy : Abilities
 {
@@ -14,10 +13,9 @@ public class Enemy : Abilities
     public Rigidbody2D EnemyRB;
     public GunBelt enemyBelt;
 
-    // Start is called before the first frame update
     void Start()
     {
-        GManager = FindObjectOfType<GameManager>();
+        GManager = FindAnyObjectByType<GameManager>();
         int weaponCount;
                 
 		t = 0f;
@@ -31,7 +29,6 @@ public class Enemy : Abilities
         health = HP;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
 		t += Time.deltaTime;
